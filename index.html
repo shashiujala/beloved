@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shashikant ❤ Ujala </title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: #fff0f5;
+      color: #333;
+      overflow-x: hidden;
+    }
+    .background {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+    .star, .heart {
+      position: absolute;
+      background-size: cover;
+      opacity: 0.8;
+      animation: floatUp 10s linear infinite;
+    }
+    .star {
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Full_Star_Yellow.svg/1024px-Full_Star_Yellow.svg.png');
+      width: 8px; height: 8px;
+    }
+    .heart {
+      background-image: url('https://em-content.zobj.net/thumbs/120/apple/325/red-heart_2764-fe0f.png');
+      width: 12px; height: 12px;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) scale(1); opacity: 1; }
+      100% { transform: translateY(-10vh) scale(0.5); opacity: 0; }
+    }
+    .container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 700px;
+      width: 100%;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      margin: 2rem auto;
+      display: none;
+      z-index: 1;
+      position: relative;
+    }
+    .header { text-align: center; margin-bottom: 1.5rem; }
+    .header h1 { color: #d81b60; margin-bottom: 0.25rem; }
+    .header p { font-style: italic; color: #555; margin-top: 0; }
+    .date {
+      font-weight: bold;
+      background: #f44336;
+      color: #fff;
+      padding: 0.25rem 0.5rem;
+      border-radius: 5px;
+      display: inline-block;
+      margin-right: 0.5rem;
+    }
+    .highlight {
+      background-color: #ffe0e6;
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      color: #d81b60;
+      font-weight: bold;
+    }
+    blockquote {
+      background-color: #fff3e0;
+      padding: 1rem;
+      border-left: 4px solid #fb8c00;
+      margin: 1.5rem 0;
+      font-style: italic;
+      color: #4e342e;
+    }
+    .footer {
+      background-color: #ffe0e6;
+      margin-top: 2rem;
+      padding: 1.5rem;
+      text-align: center;
+      border-radius: 10px;
+      color: #c2185b;
+      font-weight: bold;
+    }
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .count-box {
+      background-color: #e8b1b8;
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+      width: 80px;
+    }
+    .count-box span {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #6a1b2e;
+    }
+    .count-box small {
+      font-size: 0.9rem;
+      color: #6a1b2e;
+    }
+    .password-prompt {
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .password-prompt input {
+      padding: 0.5rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .password-prompt button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border: none;
+      background-color: #d81b60;
+      color: white;
+      border-radius: 6px;
+      margin-left: 0.5rem;
+      cursor: pointer;
+    }
+    @media (max-width: 600px) {
+      body { padding: 1rem; }
+      .container { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+
+  <div class="password-prompt">
+    <p>Enter the name of the one who owns your heart ❤️:</p>
+    <input type="password" id="pwd" placeholder="Enter name...">
+    <button onclick="unlockLove()">Unlock</button>
+  </div>
+
+  <div class="container" id="loveLetter">
+    <div class="header">
+      <img src="https://em-content.zobj.net/thumbs/120/apple/325/red-heart_2764-fe0f.png" alt="heart" width="40">
+      <h1>To My Beloved Ujala</h1>
+      <p>A letter from my heart to yours</p>
+    </div>
+
+    <div class="countdown">
+      <div class="count-box">
+        <span id="days">0</span>
+        <small>Days</small>
+      </div>
+      <div class="count-box">
+        <span id="hours">0</span>
+        <small>Hours</small>
+      </div>
+      <div class="count-box">
+        <span id="minutes">0</span>
+        <small>Minutes</small>
+      </div>
+      <div class="count-box">
+        <span id="seconds">0</span>
+        <small>Seconds</small>
+      </div>
+    </div>
+
+    <p><span class="date">6th June 2025</span> — the night you softly said <span class="highlight">"I like you"</span> at 1:08 AM…</p>
+    <p>and <span class="date">26th June 2025</span> — when you said <span class="highlight">"I love you"</span> at 9:47 PM for the very first time.</p>
+
+    <p>In those 20 days, we experienced what many couples go through in months or even years — smiles, fights, silence, understanding, misunderstandings… but above all, we chose each other. Again and again.</p>
+
+    <p>Not just because our families brought us together — but because our hearts started finding peace in each other. And with the blessings of our parents and the grace of Bappa, this bond feels more special with each passing day.</p>
+
+    <p>We’ve spent barely 72 hours together in person — once on 28th March, and then during our engagement on 1st, 2nd, and 3rd June — but in those moments, you gave me memories that stay close to my heart every single day.</p>
+
+    <blockquote>
+      That first <span class="highlight">"I like you"</span>… made me smile like never before. And when you said <span class="highlight">"I love you"</span>… my entire world shifted. A quiet storm of joy took over… I felt warmth, calm, and something deep I couldn’t explain. You turned an ordinary moment into one I’ll never forget.
+    </blockquote>
+
+    <p>Despite the distance, we’ve made this work. We’re in different cities, yet closer than ever — proof that emotional connection can defeat any number of kilometers.</p>
+
+    <p>You may not express your love all the time… but when you do — it melts my heart. You care deeply, silently… and that makes it even more special.</p>
+
+    <p>You’ve changed someone like me — someone who didn’t enjoy texting — into someone who now waits for your message like it’s the best part of the day.</p>
+
+    <p>You’re not just someone I’m going to marry… You’ve become the peace I come home to, the comfort I didn’t know I needed.</p>
+
+    <p>Let’s grow together — in love, in trust, in patience, in simplicity, with our parents’ blessings and Bappa’s grace. Let’s build a life where we always choose each other, even in the toughest of times.</p>
+
+    <div class="footer">
+      You are mine — sealed in my heart.<br />
+      Let’s live this journey, hand in hand… not just today,<br />
+      but forever. 💖
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const background = document.querySelector('.background');
+
+      function createFloatingIcon(type) {
+        const el = document.createElement('div');
+        el.classList.add(type);
+        el.style.left = Math.random() * 100 + 'vw';
+        el.style.animationDuration = 5 + Math.random() * 10 + 's';
+        el.style.opacity = Math.random();
+        background.appendChild(el);
+        setTimeout(() => background.removeChild(el), 15000);
+      }
+
+      setInterval(() => {
+        createFloatingIcon(Math.random() > 0.5 ? 'star' : 'heart');
+      }, 500);
+
+      window.unlockLove = function () {
+        const input = document.getElementById('pwd').value.trim().toLowerCase();
+        if (input === 'ujala') {
+          document.querySelector('.password-prompt').style.display = 'none';
+          document.getElementById('loveLetter').style.display = 'block';
+        } else {
+          alert("Oops! That name doesn't match my heart's secret.");
+        }
+      };
+
+      function updateCountdown() {
+        const target = new Date('November 25, 2025 00:00:00');
+        const now = new Date();
+        const diff = target - now;
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        document.getElementById('days').textContent = days;
+        document.getElementById('hours').textContent = hours;
+        document.getElementById('minutes').textContent = minutes;
+        document.getElementById('seconds').textContent = seconds;
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    });
+  </script>
+</body>
+</html>
