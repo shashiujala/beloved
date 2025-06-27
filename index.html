@@ -147,7 +147,7 @@
   <div class="background"></div>
 
   <div class="password-prompt">
-    <p>Enter the name of the one who owns my heart ❤️:</p>
+    <p>Enter the name of the one who owns your heart ❤️:</p>
     <input type="password" id="pwd" placeholder="Enter name...">
     <button onclick="unlockLove()">Unlock</button>
   </div>
@@ -230,7 +230,7 @@
 
       window.unlockLove = function () {
         const input = document.getElementById('pwd').value.trim().toLowerCase();
-        if (input === 'ujala') {
+        if (input === 'shashi') {
           document.querySelector('.password-prompt').style.display = 'none';
           document.getElementById('loveLetter').style.display = 'block';
         } else {
