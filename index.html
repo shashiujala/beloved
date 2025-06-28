@@ -166,7 +166,7 @@
 
     <p>In those 20 days, we experienced what many couples face after marriage — smiles 😊, disagreements 😔, quiet moments 🤫, growing understanding 🤝, and even a few misunderstandings 😕… But through it all, we kept choosing each other — not just once, but again and again. 💑</p>
 
-    <p>Though our families brought us together, it’s our hearts that chose to stay… and that’s what turned this bond into real love. — as our hearts started finding peace in each other. 🕊️ And with the blessings of our parents 🙏 and the grace of Bappa, this bond feels more special with each passing day. 🌸</p>
+    <p>Though our families brought us together, it’s our hearts that chose to stay — and that’s what turned this bond into real love, as we found peace in each other. 🕊️</p>
 
     <p>We’ve spent barely 72 hours together in person —once on 28th March 📅 when we met first , and then during our engagement  💍 on 1st, 2nd, and 3rd June — but in those moments, you gave me memories that stay close to my heart every single day. 🫶</p>
 
@@ -212,7 +212,7 @@
     </div>
   </div>
 
-  <script>
+  <!-- <script>
     document.addEventListener('DOMContentLoaded', () => {
       const background = document.querySelector('.background');
 
@@ -258,6 +258,59 @@
       updateCountdown();
       setInterval(updateCountdown, 1000);
     });
-  </script>
+  </script> -->
+
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const background = document.querySelector('.background');
+
+    function createFloatingIcon(type) {
+      const el = document.createElement('div');
+      el.classList.add(type);
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.animationDuration = 5 + Math.random() * 10 + 's';
+      el.style.opacity = Math.random();
+      background.appendChild(el);
+      setTimeout(() => background.removeChild(el), 15000);
+    }
+
+    setInterval(() => {
+      createFloatingIcon(Math.random() > 0.5 ? 'star' : 'heart');
+    }, 500);
+
+    // ✅ Updated unlock logic here
+    window.unlockLove = function () {
+      const input = document.getElementById('pwd').value.trim().toLowerCase();
+      const acceptedNames = ['shashi', 'shashikant', 'shashiujala']; // Add more if needed
+      if (acceptedNames.includes(input)) {
+        document.querySelector('.password-prompt').style.display = 'none';
+        document.getElementById('loveLetter').style.display = 'block';
+      } else {
+        // alert("Oops! That name doesn't match my heart's secret. 💔");
+        alert("Oops! Incorrect Try Again!!");
+      }
+    };
+
+    function updateCountdown() {
+      const target = new Date('November 25, 2025 00:00:00');
+      const now = new Date();
+      const diff = target - now;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById('days').textContent = days;
+      document.getElementById('hours').textContent = hours;
+      document.getElementById('minutes').textContent = minutes;
+      document.getElementById('seconds').textContent = seconds;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  });
+</script>
+
 </body>
 </html>
